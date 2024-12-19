@@ -1,5 +1,7 @@
 import { Schema, Prop, SchemaFactory } from "@nestjs/mongoose";
 import { AbstractDocument } from "@app/common";
+import { SchemaTypes, Types } from 'mongoose';
+import { User } from "./user.schema";
 
 @Schema({ versionKey: false })
 export class Profile extends AbstractDocument {
@@ -26,6 +28,9 @@ export class Profile extends AbstractDocument {
 
   @Prop()
   interest: string[];
+
+  @Prop([{ type: SchemaTypes.ObjectId, ref: User }])
+  user: User;
 
 }
 

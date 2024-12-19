@@ -1,5 +1,5 @@
 import { IsArray, IsNotEmpty, IsPositive, IsString } from "class-validator";
-
+import { User } from "../../schemas/user.schema";
 export class CreateProfileRequest {
   @IsString()
   @IsNotEmpty()
@@ -27,4 +27,8 @@ export class CreateProfileRequest {
 
   @IsArray()
   interest: string[];
+
+  @IsString()
+  @IsNotEmpty()
+  user: User;
 }
