@@ -1,5 +1,6 @@
-import { Body, Param, Controller, Post, Put } from '@nestjs/common';
+import { Body, Param, Controller, Post, Put, UseGuards } from '@nestjs/common';
 import { CreateProfileRequest } from './dto/create-profile.request';
+import { JwtAuthGuard } from '@app/common';
 import { ProfileService } from './profile.service';
 
 @Controller('api/profile')
@@ -9,6 +10,7 @@ export class ProfileController {
   ) {}
 
   @Post()
+  @UseGuards(JwtAuthGuard)
   async create(@Body() request: CreateProfileRequest) {
     return this.profileService.createProfile(request);
   }

@@ -29,7 +29,7 @@ export class Profile extends AbstractDocument {
   @Prop()
   interest: string[];
 
-  @Prop([{ type: SchemaTypes.ObjectId, ref: User }])
+  @Prop([{ type: SchemaTypes.ObjectId, ref: User.name }])
   user: User;
 
 }

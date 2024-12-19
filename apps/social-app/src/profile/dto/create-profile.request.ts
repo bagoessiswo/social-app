@@ -26,7 +26,7 @@ export class CreateProfileRequest {
   weight: number;
 
   @IsArray()
-  interest: string[];
+  interest: Array<string>;
 
   @IsString()
   @IsNotEmpty()

@@ -7,6 +7,7 @@ import Joi from 'joi';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ProfileModule } from './profile/profile.module';
 import { AuthModule } from './auth/auth.module';
+import { ChatsModule } from './chats/chats.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { AuthModule } from './auth/auth.module';
     }),
     DatabaseModule,
     ProfileModule,
-    AuthModule
+    AuthModule,
+    ChatsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
